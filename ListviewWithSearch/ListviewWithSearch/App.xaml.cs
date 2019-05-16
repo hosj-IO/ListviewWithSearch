@@ -13,5 +13,12 @@ namespace ListviewWithSearch
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var window = new MainWindow();
+            var vm = new MainWindowViewModel();
+            window.DataContext = vm;
+            window.Show();
+        }
     }
 }

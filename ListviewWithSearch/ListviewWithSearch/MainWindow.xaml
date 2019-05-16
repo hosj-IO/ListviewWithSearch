@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:ListviewWithSearch"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <local:NotNullConverter x:Key="NotNullConverter"/>
+    </Window.Resources>
+    <StackPanel>
+        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
+        <Button Content="Search" IsEnabled="{Binding SelectedItem, Converter={StaticResource NotNullConverter}}"/>
+        <Button Content="Deselect" Command="{Binding Deselect}"/>
+    </StackPanel>
 </Window>
